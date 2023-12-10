@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .yes {
+            background-color: #ff7f7f;
+        }
+
+        .no {
+            background-color: #aaffaa;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var predicted_class = "{{ predicted_class }}";
+        var message, className;
+
+        if (predicted_class === "YES") {
+            message = "You have a brain tumor. Please consult a doctor immediately!";
+            className = "yes";
+        } else if (predicted_class === "NO") {
+            message = "No signs of brain tumor detected. Stay healthy!";
+            className = "no";
+        } else {
+            message = "Invalid prediction result.";
+            className = "";
+        }
+
+        document.write("<h1 class='" + className + "'>" + message + "</h1>");
+    </script>
+</body>
+</html>
